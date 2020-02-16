@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"libsite.videos"}],"uuid":"c1ecc258b3854beb88c8ea7b32cb8452"}
