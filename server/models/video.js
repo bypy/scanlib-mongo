@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const BookSchema = mongoose.Schema({
-  origURL: {
+const VideoSchema = mongoose.Schema({
+  origName: {
     type: String,
     required: true,
     trim: true,
@@ -11,40 +11,29 @@ const BookSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
-  author: {
-    type: [String],
-    trim: true,
-  },
-  pubDate: {
-    type: Date,
-    trim: true,
-  },
-  isbn: {
-    type: String,
-    required: true,
-  },
   coverSrc: {
     type: String,
     required: true,
   },
   category: {
     type: [String],
-    trim: true,
   },
   descr: [{}],
   tags: {
     type: [String],
-    trim: true,
   },
   props: {
     pages: Number,
     language: String,
     format: {
-      type: [String],
+      type: String,
       trim: true,
     },
-    size: Number,
+    size: {
+      value: Number,
+      units: String,
+    },
   },
 });
 
-module.exports = mongoose.model('Book', BookSchema);
+module.exports = mongoose.model('Video', VideoSchema);

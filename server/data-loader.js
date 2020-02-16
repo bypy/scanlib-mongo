@@ -7,33 +7,64 @@ const srcDir = '../src';
 const options = {
   hostname: 'localhost',
   port: 3000,
-  path: '/book',
+  path: '/add',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
 };
 
-const printExcerptFromFiles = async () => {
-  try {
-    const files = await directoryLister(srcDir);
-    for (let i = 0; i < files.length; i += 1) {
-      const curr = files[i];
-      const content = await fileReader(curr);
+const listIterator = dirList => {
+  const processtListItem = async (i, cb) => {
+    try {
+      const curr = dirList[i];
+      if (!curr) throw new Error();
+
       try {
-        options.headers['Content-Length'] = content.length;
+        const content = await fileReader(curr);
+        options.headers['Content-Length'] = Buffer.byteLength(content);
         options.headers['X-Orig-Name'] = curr;
-        const req = http.request(options);
+        const req = http.request(options, res => {
+          if (res.statusCode !== 200) {
+            console.log(`ОШИБКА! Файл ${curr} не загружен`);
+          }
+          res.on('data', () => {
+            // necessary dummy
+          });
+          res.on('end', () => {
+            // setTimeout(() => {
+            //   cb(i + 1, cb);
+            // }, 1000);
+            cb(i + 1, cb);
+          });
+        });
+        req.on('error', error => {
+          console.error(error);
+        });
         req.write(content);
-        console.log(content);
+        req.end();
       } catch (err) {
-        console.log(err);
+        console.log(`Ошибка чтения файла ${curr}`);
+        console.log('Открываю следующий...');
+        cb(i + 1, cb);
       }
+    } catch (e) {
+      console.log('Все файлы успешно обработаны');
+      process.exit(0);
     }
-    process.exit(0);
+  };
+
+  if (dirList.length > 0) processtListItem(0, processtListItem);
+};
+
+const readFromFolderAndSend = async folder => {
+  try {
+    const files = await directoryLister(folder);
+    listIterator(files);
   } catch (err) {
-    console.log(err);
+    console.log(`Ошибка получения списка файлов в каталоге ${folder}`);
+    process.exit(1);
   }
 };
 
-printExcerptFromFiles();
+readFromFolderAndSend(srcDir);

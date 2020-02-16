@@ -13,10 +13,9 @@ const BookSchema = mongoose.Schema({
   },
   author: {
     type: [String],
-    trim: true,
   },
   pubDate: {
-    type: Date,
+    type: Number,
     trim: true,
   },
   isbn: {
@@ -29,19 +28,16 @@ const BookSchema = mongoose.Schema({
   },
   category: {
     type: [String],
-    trim: true,
   },
   descr: [{}],
   tags: {
     type: [String],
-    trim: true,
   },
   props: {
     pages: Number,
     language: String,
     format: {
       type: [String],
-      trim: true,
     },
     size: {
       value: Number,

@@ -1,18 +1,1 @@
-{
-	"skill": "Advanced",
-	"heading": "Advanced Node.js: Scaling Applications",
-	"category": ["Database", "JavaScript", "Video"],
-	"imgPath": "/home/user/course_work/images/giOq4eZl.jpg",
-	"info": {
-		"video": ["English", "MP4", "AVC 1280×720", "AAC 48KHz 2ch", "1h 15m", "200 MB", "eLearning"]
-	},
-	"description": [{
-			"p": "While Node.js is great for creating small apps with minimal surface areas, it was designed to scale. In this course, learn sophisticated programming techniques that can help you scale your Node.js applications. Instructor Alex Banks goes over the scale cube, discussing the different directions in which an app can be scaled: along the x-axis, z-axis, and y-axis. He also looks at cloning, discussing how to fork your Node.js processes and work with clusters with PM2. Plus, learn how to set up horizontal partitioning to split data between databases, as well as how to decompose applications into microservices."
-		}, {
-			"p": "Topics include:"
-		}, {
-			"ul": ["Cloning", "The scale cube", "Scaling the x-axis, z-axis, and y-axis", "Forking processes", "Implementing a database instance", "Database scaling", "Setting up horizontal partitioning", "Decomposing your app into microservices"]
-		}
-	],
-	"tags": ["JavaScript", "Node.js", "Video Training"]
-}
+{"skill":"Advanced","heading":"Advanced Node.js: Scaling Applications","category":["Database","JavaScript","Video"],"imgPath":"/home/user/course_work/images/giOq4eZl.jpg","info":{"video":["English","MP4","AVC 1280×720","AAC 48KHz 2ch","1h 15m","200 MB","eLearning"]},"description":[{"p":"While Node.js is great for creating small apps with minimal surface areas, it was designed to scale. In this course, learn sophisticated programming techniques that can help you scale your Node.js applications. Instructor Alex Banks goes over the scale cube, discussing the different directions in which an app can be scaled: along the x-axis, z-axis, and y-axis. He also looks at cloning, discussing how to fork your Node.js processes and work with clusters with PM2. Plus, learn how to set up horizontal partitioning to split data between databases, as well as how to decompose applications into microservices."},{"p":"Topics include:"},{"ul":["Cloning","The scale cube","Scaling the x-axis, z-axis, and y-axis","Forking processes","Implementing a database instance","Database scaling","Setting up horizontal partitioning","Decomposing your app into microservices"]}],"tags":["JavaScript","Node.js","Video Training"]}
