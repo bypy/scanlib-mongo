@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>{{{title}}}</h1>
+    <div class="cover">
+        <img src="{{coverSrc}}" alt="{{coverSrc}}">
+    </div>
+    
+    <span>Категории:</span>
+    <ul class="category">
+        {{#each category}}
+            <li>{{.}}</li>
+        {{else}}
+            <li>категории не присвоены</li>    
+        {{/each}}
+    </ul>
+    <ul class="details">
+        <li>Автор: {{author}}</li>
+        <li>Дата выхода: {{pubDate}}</li>
+        <li>ISBN: {{isbn}}</li>
+        <li>Страниц: {{props.pages}}</li>
+        <li>Язык: {{props.language}}</li>
+        <li>Формат: 
+            {{#each props.format}}
+                {{.}}{{#unless @last}} / {{/unless}}
+            {{/each}}
+        </li>
+        <li>Размер: {{props.size.value}} {{props.size.units}}</li>
+    </ul>
+    <div class="descr"></div>
+</div>
